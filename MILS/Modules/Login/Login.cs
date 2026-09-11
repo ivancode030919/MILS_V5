@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MILS.Class;
 
 namespace MILS.Modules.Login
 {
@@ -20,8 +20,22 @@ namespace MILS.Modules.Login
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            MainForm s = new MainForm();
-            s.ShowDialog();
+
+            //if (LoginClass.LoginUser(textBox1.Text, textBox2.Text) == true)
+            //{
+            //    MainForm s = new MainForm();
+            //    this.Hide();
+            //    s.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Invalid User.");
+            //}
+
+            string p = LoginClass.GetUserID(textBox1.Text, textBox2.Text).ToString();
+            MessageBox.Show(p.ToString());
+
+
         }
     }
 }

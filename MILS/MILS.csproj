@@ -57,6 +57,7 @@
     <Compile Include="Class\DocumentClass.cs" />
     <Compile Include="Class\ItemClass.cs" />
     <Compile Include="Class\LocationClass.cs" />
+    <Compile Include="Class\LoginClass.cs" />
     <Compile Include="Class\ReceivingClass.cs" />
     <Compile Include="Class\UOMClass.cs" />
     <Compile Include="Connections\DataClasses1.cs">
