@@ -27,7 +27,6 @@ namespace MILS.Modules.Receiving
         private void ReceiveDetailData_Load(object sender, EventArgs e)
         {
             DisplayData(textBox1.Text);
-    
         }
 
         public void DisplayData(string search)

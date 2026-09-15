@@ -21,20 +21,23 @@ namespace MILS.Modules.Login
         private void Button2_Click(object sender, EventArgs e)
         {
 
-            //if (LoginClass.LoginUser(textBox1.Text, textBox2.Text) == true)
-            //{
-            //    MainForm s = new MainForm();
-            //    this.Hide();
-            //    s.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Invalid User.");
-            //}
+            if (LoginClass.LoginUser(textBox1.Text, textBox2.Text) == true)
+            {
+                int p = LoginClass.GetUserID(textBox1.Text, textBox2.Text);
+                int l = LoginClass.GetAreaID(p);
 
-            string p = LoginClass.GetUserID(textBox1.Text, textBox2.Text).ToString();
-            MessageBox.Show(p.ToString());
+                MainForm s = new MainForm();
+                this.Hide();
+                s.UserID = p;
+                s.AreaID = l;
+                s.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Invalid User.");
+            }
 
+     
 
         }
     }

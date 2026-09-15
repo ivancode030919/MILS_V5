@@ -13,7 +13,7 @@ namespace MILS.Class
     {
         public static int EntryNumber;
         public static int Area;
-        private Modules.Receiving.ReceivingRegister _receiving;
+        //private Modules.Receiving.ReceivingRegister _receiving;
 
         public static Table<tbl_RecHeader> GetTbl_RecHeaders()
         {
@@ -31,7 +31,7 @@ namespace MILS.Class
         }
 
 
-        public static void SaveHeader(int Areaid,int DoctypeId,string DocNo,int Remarksid,int RefDocType,string RefDocNo,String Ownership,DateTime Date,int UserId,int Warehouse)
+        public static void SaveHeader(int Areaid,int DoctypeId,string DocNo,int Remarksid,int RefDocType,string RefDocNo,String Ownership,DateTime Date,int UserID,int AreaID)
         {
 
             tbl_RecHeader p = new tbl_RecHeader()
@@ -44,8 +44,8 @@ namespace MILS.Class
               RefDocNo = RefDocNo,
               Ownership = Ownership,
               DocDate = Date,
-              UserID = UserId,
-              Warehouse = Warehouse
+              UserID = UserID,
+              UserArea = AreaID
             };
             LCon.db.tbl_RecHeaders.InsertOnSubmit(p);
             LCon.db.tbl_RecHeaders.Context.SubmitChanges();

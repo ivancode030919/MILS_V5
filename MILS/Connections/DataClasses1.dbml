@@ -116,6 +116,24 @@
       <Column Name="UOMName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_Users" Member="tbl_Users">
+    <Type Name="tbl_User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UserPass" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Employee" Member="tbl_Employees">
+    <Type Name="tbl_Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Mname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Lname" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_RecHeader" Member="tbl_RecHeaders">
     <Type Name="tbl_RecHeader">
       <Column Name="RecHeaderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -128,25 +146,7 @@
       <Column Name="RefDocNo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Ownership" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Warehouse" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_Users" Member="tbl_Users">
-    <Type Name="tbl_User">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="UserPass" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_Employee" Member="tbl_Employees">
-    <Type Name="tbl_Employee">
-      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Fname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Mname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Lname" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="AreaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserArea" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.SP_InsertNewItem" Method="SP_InsertNewItem">

@@ -13,8 +13,8 @@ namespace MILS
 {
     public partial class MainForm : Form
     {
-        public int Warehouse = 1000;
-        public int EMPLOYEEID = 1;
+        public int AreaID = 0;
+        public int UserID = 0;
 
         public MainForm()
         {
@@ -52,7 +52,7 @@ namespace MILS
 
         private void AccordionControlElement9_Click(object sender, EventArgs e)
         {
-            Modules.Receiving.ReceivingMain s = new Modules.Receiving.ReceivingMain();
+            Modules.Receiving.ReceivingMain s = new Modules.Receiving.ReceivingMain(this);
             s.ShowDialog();
         }
 
@@ -64,7 +64,8 @@ namespace MILS
 
         private void AccordionControlElement12_Click(object sender, EventArgs e)
         {
-            Modules.UOM.UOM s = new Modules.UOM.UOM();
+            Modules.UOM.UOM s = new Modules.UOM.UOM(this,null);
+            s.Othermodule = 1;
             s.ShowDialog();
         }
 

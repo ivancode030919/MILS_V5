@@ -43,15 +43,16 @@ namespace MILS.Modules.Item
         {
             if (textBox2.Text == string.Empty)
             {
-                MessageBox.Show("Input Item No. first.");
+                MessageBox.Show("Input Item No.");
             }
             else if (textBox3.Text == string.Empty)
             {
-
+                MessageBox.Show("Input Item Description.");
             }
             else
             {
-                AddItemDetails s = new AddItemDetails(this);
+                UomGroup s = new UomGroup(this);
+                s.textBox1.Text = textBox2.Text;
                 s.ShowDialog();
             }
         }

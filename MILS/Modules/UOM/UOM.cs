@@ -8,14 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MILS.Class;
+using MILS.Modules;
 
 namespace MILS.Modules.UOM
 {
     public partial class UOM : Form
     {
-        public UOM()
+        public int Othermodule = 0;
+        public int index;
+        private MainForm _mainForm;
+        private Modules.Item.UomGroup _UomGroup;
+
+        public UOM(MainForm Mod = null, Modules.Item.UomGroup UoMgroup = null)
         {
             InitializeComponent();
+            _mainForm = Mod;
+            _UomGroup = UoMgroup;
             Display("");
         }
 
@@ -40,6 +48,38 @@ namespace MILS.Modules.UOM
         {
             Display(textBox1.Text);
            
+        }
+
+        private void UOM_Load(object sender, EventArgs e)
+        {
+            if (Othermodule == 1)
+            {
+                button1.Visible = true;
+            }
+            else if (Othermodule ==2)
+            {
+                button1.Visible = false;
+            }
+            else if (Othermodule == 3)
+            {
+                button1.Visible = false;
+            }
+        }
+
+        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+
+            if (Othermodule == 2)
+            {
+                _UomGroup.textBox2.Text = dataGridView1.Rows[row].Cells[1].Value.ToString();
+            }
+            else if (Othermodule == 3)
+            {
+                _UomGroup.dataGridView1.Rows[index].Cells[0].Value = dataGridView1.Rows[row].Cells[1].Value?.ToString();
+            }
+
+            this.Close();
         }
     }
 }

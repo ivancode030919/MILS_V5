@@ -60,6 +60,7 @@
     <Compile Include="Class\LoginClass.cs" />
     <Compile Include="Class\ReceivingClass.cs" />
     <Compile Include="Class\UOMClass.cs" />
+    <Compile Include="Class\UoMGroupClass.cs" />
     <Compile Include="Connections\DataClasses1.cs">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
@@ -93,11 +94,11 @@
     <Compile Include="Modules\Item\AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Item\AddItemDetails.cs">
+    <Compile Include="Modules\Item\UomGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\Item\AddItemDetails.Designer.cs">
-      <DependentUpon>AddItemDetails.cs</DependentUpon>
+    <Compile Include="Modules\Item\UomGroup.Designer.cs">
+      <DependentUpon>UomGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Item\Items.cs">
       <SubType>Form</SubType>
@@ -173,8 +174,8 @@
     <EmbeddedResource Include="Modules\Item\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Item\AddItemDetails.resx">
-      <DependentUpon>AddItemDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Modules\Item\UomGroup.resx">
+      <DependentUpon>UomGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Item\Items.resx">
       <DependentUpon>Items.cs</DependentUpon>

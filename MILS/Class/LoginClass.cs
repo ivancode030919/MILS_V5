@@ -11,8 +11,6 @@ namespace MILS.Class
 {
     class LoginClass
     {
-        public static int UserID = 0;
-        public static int AreaId;
 
         public static Table<tbl_User>GetTbl_Users()
         {
@@ -33,25 +31,16 @@ namespace MILS.Class
             var p = (from s in GetTbl_Users()
                          where s.UserCode == User && s.UserPass== Pass
                          select s).FirstOrDefault();
-
-            p.UserID = UserID;
             return p.UserID;
         }
 
-        
-        public static int GetAreaID(string User, string Pass)
+        public static int GetAreaID(int employeeid)
         {
-            var p = (from s in GetTbl_Users()
-                     where s.UserCode == User && s.UserPass == Pass
+            var p = (from s in LCon.db.GetTable<tbl_Employee>()
+                     where s.EmployeeID == employeeid
                      select s).FirstOrDefault();
-            return p.UserID;
+            return p.AreaID;
         }
-
-
-
-
-
-
 
     }
 }

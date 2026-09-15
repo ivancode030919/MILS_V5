@@ -14,15 +14,20 @@ namespace MILS.Modules.Receiving
 {
     public partial class ReceivingMain : Form
     {
-        int DGIndex; 
-        public ReceivingMain()
+        int DGIndex;
+        private MainForm _MainForm;
+
+
+        public ReceivingMain(MainForm Recv)
         {
             InitializeComponent();
+            _MainForm = Recv;
             DisplayCombox();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
+
             if (button2.Text == "ADD")
             {
                 if (comboBox1.SelectedIndex == -1)
@@ -46,7 +51,7 @@ namespace MILS.Modules.Receiving
                     ReceiveDG.AllowUserToAddRows = false;
                     textBox3.Text = ReceivingClass.EntryNumber.ToString();
                 }
-  
+
             }
             else if (button2.Text == "NEW ENTRY")
             {
@@ -127,8 +132,11 @@ namespace MILS.Modules.Receiving
             int areaId = Convert.ToInt32(comboBox1.SelectedValue);
             int DocId = Convert.ToInt32(comboBox2.SelectedValue);
             int RefDocId = Convert.ToInt32(comboBox4.SelectedValue);
-            //ReceivingClass.SaveHeader(areaId, DocId, textBox1.Text, 1, RefDocId, textBox2.Text, comboBox5.Text, dateTimePicker1.Value);
-            
+            int UserAreaID = _MainForm.UserID;
+            int AreaID = _MainForm.AreaID;
+
+            ReceivingClass.SaveHeader(areaId, DocId, textBox1.Text, 1, RefDocId, textBox2.Text, comboBox5.Text, dateTimePicker1.Value, UserAreaID, AreaID);
+
             string ItemNo;
             string UOM;
             int BatchID;

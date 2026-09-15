@@ -57,15 +57,15 @@ namespace MILS.Connections
     partial void Inserttbl_UoM(tbl_UoM instance);
     partial void Updatetbl_UoM(tbl_UoM instance);
     partial void Deletetbl_UoM(tbl_UoM instance);
-    partial void Inserttbl_RecHeader(tbl_RecHeader instance);
-    partial void Updatetbl_RecHeader(tbl_RecHeader instance);
-    partial void Deletetbl_RecHeader(tbl_RecHeader instance);
     partial void Inserttbl_User(tbl_User instance);
     partial void Updatetbl_User(tbl_User instance);
     partial void Deletetbl_User(tbl_User instance);
     partial void Inserttbl_Employee(tbl_Employee instance);
     partial void Updatetbl_Employee(tbl_Employee instance);
     partial void Deletetbl_Employee(tbl_Employee instance);
+    partial void Inserttbl_RecHeader(tbl_RecHeader instance);
+    partial void Updatetbl_RecHeader(tbl_RecHeader instance);
+    partial void Deletetbl_RecHeader(tbl_RecHeader instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -194,14 +194,6 @@ namespace MILS.Connections
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_RecHeader> tbl_RecHeaders
-		{
-			get
-			{
-				return this.GetTable<tbl_RecHeader>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tbl_User> tbl_Users
 		{
 			get
@@ -215,6 +207,14 @@ namespace MILS.Connections
 			get
 			{
 				return this.GetTable<tbl_Employee>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_RecHeader> tbl_RecHeaders
+		{
+			get
+			{
+				return this.GetTable<tbl_RecHeader>();
 			}
 		}
 		
@@ -2113,6 +2113,322 @@ namespace MILS.Connections
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Users")]
+	public partial class tbl_User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _UserID;
+		
+		private string _UserCode;
+		
+		private string _UserPass;
+		
+		private System.Nullable<int> _EmployeeID;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnUserCodeChanging(string value);
+    partial void OnUserCodeChanged();
+    partial void OnUserPassChanging(string value);
+    partial void OnUserPassChanged();
+    partial void OnEmployeeIDChanging(System.Nullable<int> value);
+    partial void OnEmployeeIDChanged();
+    #endregion
+		
+		public tbl_User()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserCode", DbType="VarChar(50)")]
+		public string UserCode
+		{
+			get
+			{
+				return this._UserCode;
+			}
+			set
+			{
+				if ((this._UserCode != value))
+				{
+					this.OnUserCodeChanging(value);
+					this.SendPropertyChanging();
+					this._UserCode = value;
+					this.SendPropertyChanged("UserCode");
+					this.OnUserCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPass", DbType="VarChar(250)")]
+		public string UserPass
+		{
+			get
+			{
+				return this._UserPass;
+			}
+			set
+			{
+				if ((this._UserPass != value))
+				{
+					this.OnUserPassChanging(value);
+					this.SendPropertyChanging();
+					this._UserPass = value;
+					this.SendPropertyChanged("UserPass");
+					this.OnUserPassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
+		public System.Nullable<int> EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Employee")]
+	public partial class tbl_Employee : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EmployeeID;
+		
+		private string _Fname;
+		
+		private string _Mname;
+		
+		private string _Lname;
+		
+		private int _AreaID;
+		
+		private System.DateTime _Date;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanged();
+    partial void OnFnameChanging(string value);
+    partial void OnFnameChanged();
+    partial void OnMnameChanging(string value);
+    partial void OnMnameChanged();
+    partial void OnLnameChanging(string value);
+    partial void OnLnameChanged();
+    partial void OnAreaIDChanging(int value);
+    partial void OnAreaIDChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    #endregion
+		
+		public tbl_Employee()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Fname
+		{
+			get
+			{
+				return this._Fname;
+			}
+			set
+			{
+				if ((this._Fname != value))
+				{
+					this.OnFnameChanging(value);
+					this.SendPropertyChanging();
+					this._Fname = value;
+					this.SendPropertyChanged("Fname");
+					this.OnFnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mname", DbType="VarChar(100)")]
+		public string Mname
+		{
+			get
+			{
+				return this._Mname;
+			}
+			set
+			{
+				if ((this._Mname != value))
+				{
+					this.OnMnameChanging(value);
+					this.SendPropertyChanging();
+					this._Mname = value;
+					this.SendPropertyChanged("Mname");
+					this.OnMnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lname", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Lname
+		{
+			get
+			{
+				return this._Lname;
+			}
+			set
+			{
+				if ((this._Lname != value))
+				{
+					this.OnLnameChanging(value);
+					this.SendPropertyChanging();
+					this._Lname = value;
+					this.SendPropertyChanged("Lname");
+					this.OnLnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AreaID", DbType="Int NOT NULL")]
+		public int AreaID
+		{
+			get
+			{
+				return this._AreaID;
+			}
+			set
+			{
+				if ((this._AreaID != value))
+				{
+					this.OnAreaIDChanging(value);
+					this.SendPropertyChanging();
+					this._AreaID = value;
+					this.SendPropertyChanged("AreaID");
+					this.OnAreaIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_RecHeader")]
 	public partial class tbl_RecHeader : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2139,7 +2455,7 @@ namespace MILS.Connections
 		
 		private System.Nullable<int> _UserID;
 		
-		private System.Nullable<int> _Warehouse;
+		private System.Nullable<int> _UserArea;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2165,8 +2481,8 @@ namespace MILS.Connections
     partial void OnOwnershipChanged();
     partial void OnUserIDChanging(System.Nullable<int> value);
     partial void OnUserIDChanged();
-    partial void OnWarehouseChanging(System.Nullable<int> value);
-    partial void OnWarehouseChanged();
+    partial void OnUserAreaChanging(System.Nullable<int> value);
+    partial void OnUserAreaChanged();
     #endregion
 		
 		public tbl_RecHeader()
@@ -2374,338 +2690,22 @@ namespace MILS.Connections
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Warehouse", DbType="Int")]
-		public System.Nullable<int> Warehouse
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserArea", DbType="Int")]
+		public System.Nullable<int> UserArea
 		{
 			get
 			{
-				return this._Warehouse;
+				return this._UserArea;
 			}
 			set
 			{
-				if ((this._Warehouse != value))
+				if ((this._UserArea != value))
 				{
-					this.OnWarehouseChanging(value);
+					this.OnUserAreaChanging(value);
 					this.SendPropertyChanging();
-					this._Warehouse = value;
-					this.SendPropertyChanged("Warehouse");
-					this.OnWarehouseChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Users")]
-	public partial class tbl_User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserID;
-		
-		private string _UserCode;
-		
-		private string _UserPass;
-		
-		private System.Nullable<int> _EmployeeID;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIDChanging(int value);
-    partial void OnUserIDChanged();
-    partial void OnUserCodeChanging(string value);
-    partial void OnUserCodeChanged();
-    partial void OnUserPassChanging(string value);
-    partial void OnUserPassChanged();
-    partial void OnEmployeeIDChanging(System.Nullable<int> value);
-    partial void OnEmployeeIDChanged();
-    #endregion
-		
-		public tbl_User()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserCode", DbType="VarChar(50)")]
-		public string UserCode
-		{
-			get
-			{
-				return this._UserCode;
-			}
-			set
-			{
-				if ((this._UserCode != value))
-				{
-					this.OnUserCodeChanging(value);
-					this.SendPropertyChanging();
-					this._UserCode = value;
-					this.SendPropertyChanged("UserCode");
-					this.OnUserCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPass", DbType="VarChar(250)")]
-		public string UserPass
-		{
-			get
-			{
-				return this._UserPass;
-			}
-			set
-			{
-				if ((this._UserPass != value))
-				{
-					this.OnUserPassChanging(value);
-					this.SendPropertyChanging();
-					this._UserPass = value;
-					this.SendPropertyChanged("UserPass");
-					this.OnUserPassChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
-		public System.Nullable<int> EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Employee")]
-	public partial class tbl_Employee : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EmployeeID;
-		
-		private string _Fname;
-		
-		private string _Mname;
-		
-		private string _Lname;
-		
-		private System.Nullable<int> _AreaID;
-		
-		private System.Nullable<System.DateTime> _Date;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEmployeeIDChanging(int value);
-    partial void OnEmployeeIDChanged();
-    partial void OnFnameChanging(string value);
-    partial void OnFnameChanged();
-    partial void OnMnameChanging(string value);
-    partial void OnMnameChanged();
-    partial void OnLnameChanging(string value);
-    partial void OnLnameChanged();
-    partial void OnAreaIDChanging(System.Nullable<int> value);
-    partial void OnAreaIDChanged();
-    partial void OnDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateChanged();
-    #endregion
-		
-		public tbl_Employee()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					this.OnEmployeeIDChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeID = value;
-					this.SendPropertyChanged("EmployeeID");
-					this.OnEmployeeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fname", DbType="VarChar(100)")]
-		public string Fname
-		{
-			get
-			{
-				return this._Fname;
-			}
-			set
-			{
-				if ((this._Fname != value))
-				{
-					this.OnFnameChanging(value);
-					this.SendPropertyChanging();
-					this._Fname = value;
-					this.SendPropertyChanged("Fname");
-					this.OnFnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mname", DbType="VarChar(100)")]
-		public string Mname
-		{
-			get
-			{
-				return this._Mname;
-			}
-			set
-			{
-				if ((this._Mname != value))
-				{
-					this.OnMnameChanging(value);
-					this.SendPropertyChanging();
-					this._Mname = value;
-					this.SendPropertyChanged("Mname");
-					this.OnMnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lname", DbType="NChar(10)")]
-		public string Lname
-		{
-			get
-			{
-				return this._Lname;
-			}
-			set
-			{
-				if ((this._Lname != value))
-				{
-					this.OnLnameChanging(value);
-					this.SendPropertyChanging();
-					this._Lname = value;
-					this.SendPropertyChanged("Lname");
-					this.OnLnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AreaID", DbType="Int")]
-		public System.Nullable<int> AreaID
-		{
-			get
-			{
-				return this._AreaID;
-			}
-			set
-			{
-				if ((this._AreaID != value))
-				{
-					this.OnAreaIDChanging(value);
-					this.SendPropertyChanging();
-					this._AreaID = value;
-					this.SendPropertyChanged("AreaID");
-					this.OnAreaIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date")]
-		public System.Nullable<System.DateTime> Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
+					this._UserArea = value;
+					this.SendPropertyChanged("UserArea");
+					this.OnUserAreaChanged();
 				}
 			}
 		}
