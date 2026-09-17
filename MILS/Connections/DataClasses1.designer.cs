@@ -51,9 +51,6 @@ namespace MILS.Connections
     partial void Inserttbl_RecDetail(tbl_RecDetail instance);
     partial void Updatetbl_RecDetail(tbl_RecDetail instance);
     partial void Deletetbl_RecDetail(tbl_RecDetail instance);
-    partial void Inserttbl_UoMGroup(tbl_UoMGroup instance);
-    partial void Updatetbl_UoMGroup(tbl_UoMGroup instance);
-    partial void Deletetbl_UoMGroup(tbl_UoMGroup instance);
     partial void Inserttbl_UoM(tbl_UoM instance);
     partial void Updatetbl_UoM(tbl_UoM instance);
     partial void Deletetbl_UoM(tbl_UoM instance);
@@ -66,6 +63,9 @@ namespace MILS.Connections
     partial void Inserttbl_RecHeader(tbl_RecHeader instance);
     partial void Updatetbl_RecHeader(tbl_RecHeader instance);
     partial void Deletetbl_RecHeader(tbl_RecHeader instance);
+    partial void Inserttbl_UoMGroup(tbl_UoMGroup instance);
+    partial void Updatetbl_UoMGroup(tbl_UoMGroup instance);
+    partial void Deletetbl_UoMGroup(tbl_UoMGroup instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -178,14 +178,6 @@ namespace MILS.Connections
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_UoMGroup> tbl_UoMGroups
-		{
-			get
-			{
-				return this.GetTable<tbl_UoMGroup>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tbl_UoM> tbl_UoMs
 		{
 			get
@@ -215,6 +207,14 @@ namespace MILS.Connections
 			get
 			{
 				return this.GetTable<tbl_RecHeader>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_UoMGroup> tbl_UoMGroups
+		{
+			get
+			{
+				return this.GetTable<tbl_UoMGroup>();
 			}
 		}
 		
@@ -1893,116 +1893,6 @@ namespace MILS.Connections
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_UoMGroup")]
-	public partial class tbl_UoMGroup : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UoMgroupID;
-		
-		private string _UoM;
-		
-		private string _ItemNo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUoMgroupIDChanging(int value);
-    partial void OnUoMgroupIDChanged();
-    partial void OnUoMChanging(string value);
-    partial void OnUoMChanged();
-    partial void OnItemNoChanging(string value);
-    partial void OnItemNoChanged();
-    #endregion
-		
-		public tbl_UoMGroup()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UoMgroupID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int UoMgroupID
-		{
-			get
-			{
-				return this._UoMgroupID;
-			}
-			set
-			{
-				if ((this._UoMgroupID != value))
-				{
-					this.OnUoMgroupIDChanging(value);
-					this.SendPropertyChanging();
-					this._UoMgroupID = value;
-					this.SendPropertyChanged("UoMgroupID");
-					this.OnUoMgroupIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UoM", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string UoM
-		{
-			get
-			{
-				return this._UoM;
-			}
-			set
-			{
-				if ((this._UoM != value))
-				{
-					this.OnUoMChanging(value);
-					this.SendPropertyChanging();
-					this._UoM = value;
-					this.SendPropertyChanged("UoM");
-					this.OnUoMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemNo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ItemNo
-		{
-			get
-			{
-				return this._ItemNo;
-			}
-			set
-			{
-				if ((this._ItemNo != value))
-				{
-					this.OnItemNoChanging(value);
-					this.SendPropertyChanging();
-					this._ItemNo = value;
-					this.SendPropertyChanged("ItemNo");
-					this.OnItemNoChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_UoM")]
 	public partial class tbl_UoM : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2706,6 +2596,140 @@ namespace MILS.Connections
 					this._UserArea = value;
 					this.SendPropertyChanged("UserArea");
 					this.OnUserAreaChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_UoMGroup")]
+	public partial class tbl_UoMGroup : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _UoMgroupID;
+		
+		private string _UoM;
+		
+		private string _ItemNo;
+		
+		private double _AltQty;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUoMgroupIDChanging(int value);
+    partial void OnUoMgroupIDChanged();
+    partial void OnUoMChanging(string value);
+    partial void OnUoMChanged();
+    partial void OnItemNoChanging(string value);
+    partial void OnItemNoChanged();
+    partial void OnAltQtyChanging(double value);
+    partial void OnAltQtyChanged();
+    #endregion
+		
+		public tbl_UoMGroup()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UoMgroupID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UoMgroupID
+		{
+			get
+			{
+				return this._UoMgroupID;
+			}
+			set
+			{
+				if ((this._UoMgroupID != value))
+				{
+					this.OnUoMgroupIDChanging(value);
+					this.SendPropertyChanging();
+					this._UoMgroupID = value;
+					this.SendPropertyChanged("UoMgroupID");
+					this.OnUoMgroupIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UoM", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string UoM
+		{
+			get
+			{
+				return this._UoM;
+			}
+			set
+			{
+				if ((this._UoM != value))
+				{
+					this.OnUoMChanging(value);
+					this.SendPropertyChanging();
+					this._UoM = value;
+					this.SendPropertyChanged("UoM");
+					this.OnUoMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemNo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ItemNo
+		{
+			get
+			{
+				return this._ItemNo;
+			}
+			set
+			{
+				if ((this._ItemNo != value))
+				{
+					this.OnItemNoChanging(value);
+					this.SendPropertyChanging();
+					this._ItemNo = value;
+					this.SendPropertyChanged("ItemNo");
+					this.OnItemNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AltQty", DbType="Float NOT NULL")]
+		public double AltQty
+		{
+			get
+			{
+				return this._AltQty;
+			}
+			set
+			{
+				if ((this._AltQty != value))
+				{
+					this.OnAltQtyChanging(value);
+					this.SendPropertyChanging();
+					this._AltQty = value;
+					this.SendPropertyChanged("AltQty");
+					this.OnAltQtyChanged();
 				}
 			}
 		}

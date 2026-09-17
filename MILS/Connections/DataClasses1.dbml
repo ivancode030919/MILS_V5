@@ -102,13 +102,6 @@
       <Column Name="UoM" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_UoMGroup" Member="tbl_UoMGroups">
-    <Type Name="tbl_UoMGroup">
-      <Column Name="UoMgroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UoM" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="ItemNo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.tbl_UoM" Member="tbl_UoMs">
     <Type Name="tbl_UoM">
       <Column Name="UoMID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -147,6 +140,14 @@
       <Column Name="Ownership" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UserArea" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_UoMGroup" Member="tbl_UoMGroups">
+    <Type Name="tbl_UoMGroup">
+      <Column Name="UoMgroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UoM" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemNo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AltQty" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.SP_InsertNewItem" Method="SP_InsertNewItem">

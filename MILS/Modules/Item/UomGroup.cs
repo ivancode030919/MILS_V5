@@ -52,6 +52,24 @@ namespace MILS.Modules.Item
         private void Button2_Click(object sender, EventArgs e)
         {
 
+            string ItemNo;
+            string UoMCode;
+            double AltQty;
+
+            UoMGroupClass.SaveUoM(textBox2.Text, textBox3.Text);
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+
+                ItemNo = textBox1.Text;
+                UoMCode = row.Cells[0].Value.ToString();
+                AltQty = Convert.ToSingle(row.Cells[1].Value);
+
+                UoMGroupClass.SaveAlterUoM(ItemNo, UoMCode, AltQty);
+            }
+
         }
     }
 }

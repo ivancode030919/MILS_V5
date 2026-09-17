@@ -29,13 +29,14 @@ namespace MILS.Class
 
         }
 
-        public static void SaveAlterUoM(String ItemNo, String UomCode)
+        public static void SaveAlterUoM(String ItemNo, String UomCode, float AltQty)
         {
             Table<tbl_UoMGroup> post = GetTbl_UoMGroups();
             tbl_UoMGroup p = new tbl_UoMGroup()
             {
                 UoM = UomCode,
-                ItemNo = ItemNo
+                ItemNo = ItemNo,
+                AltQty = AltQty
             };
 
             post.InsertOnSubmit(p);
